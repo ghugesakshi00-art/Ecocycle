@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#16a34a">
+  <meta name="description" content="EcoCycle - E-Waste Management & Recycling for Rural and Village Communities in India. Audio guide in Marathi, Hindi, and English.">
+  
+  <title>EcoCycle | ग्रामीण ई-कचरा व्यवस्थापन</title>
+
+  <!-- Google Fonts: Noto Sans Devanagari & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Pure CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Language & Theme Bar -->
+  <aside class="language-bar" aria-label="Language and accessibility settings">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-weight: 700; font-size: 0.95rem;" data-i18n="langSelect">भाषा निवडा:</span>
+        <div class="lang-btn-group" role="group" aria-label="Select website language">
+          <button type="button" class="lang-btn active" data-lang="mr" aria-label="मराठी भाषा निवडा">
+            🚩 मराठी
+          </button>
+          <button type="button" class="lang-btn" data-lang="hi" aria-label="हिंदी भाषा चुनें">
+            🇮🇳 हिंदी
+          </button>
+          <button type="button" class="lang-btn" data-lang="en" aria-label="Choose English language">
+            🌐 English
+          </button>
+        </div>
+      </div>
+      <button type="button" id="theme-toggle-btn" class="btn-icon-toggle" aria-label="Toggle Dark and Light theme" title="डार्क / लाइट मोड बदला">
+        🌙
+      </button>
+    </div>
+  </aside>
+
+  <!-- Friendly Voice Fallback Banner (If browser lacks Marathi voice) -->
+  <div id="speech-notice-banner" class="speech-notice-banner" role="alert" data-i18n="fallbackVoiceNotice">
+    ℹ️ आपल्या फोनमध्ये मराठी आवाज उपलब्ध नसल्यामुळे हिंदी आवाजात ऐकवले जात आहे.
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="#hero-section" class="logo-area" aria-label="EcoCycle Home">
+        <span class="logo-icon">🌱</span>
+        <div>
+          <span data-i18n="appName">EcoCycle</span>
+          <span class="logo-sub" data-i18n="appSub">ग्रामीण ई-कचरा व्यवस्थापन</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="#pickup-section" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.95rem;" data-i18n="heroCtaBtn">
+          पिकअपसाठी अर्ज करा 🚚
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         SECTION 1: HERO SECTION
+         ==================================================================== -->
+    <section id="hero-section" class="hero-section">
+      <div class="container">
+        <div class="hero-badge" data-i18n="heroBadge">
+          🌱 स्वच्छ शेती आणि सुरक्षित गाव मोहीम
+        </div>
+        <h1 class="hero-title" data-i18n="heroTitle">
+          जुन्या मोबाईल आणि इलेक्ट्रॉनिक भंगारातून मिळवा रोख रक्कम!
+        </h1>
+        <p class="hero-tagline" data-i18n="heroTagline">
+          जुने मोबाईल, बॅटरी किंवा तारा शेतात किंवा उकिरड्यावर टाकू नका. गावातून मोफत पिकअप बुक करा, रोख पैसे आणि बक्षिसे मिळवा.
+        </p>
+
+        <!-- Listen Button for Hero -->
+        <div class="section-audio-row" style="margin-bottom: 28px;">
+          <button type="button" class="btn-listen" data-speech-key="heroListenText" aria-label="Read hero section aloud">
+            <span data-i18n="btnListen">🔊 ऐका</span>
+          </button>
+          <button type="button" class="btn-stop-audio" aria-label="Stop reading aloud">
+            <span data-i18n="btnStop">⏹️ थांबवा</span>
+          </button>
+        </div>
+
+        <div class="hero-btn-row">
+          <a href="#pickup-section" class="btn btn-primary" data-i18n="heroCtaBtn">
+            पिकअपसाठी अर्ज करा 🚚
+          </a>
+          <a href="#calculator-section" class="btn btn-secondary" data-i18n="heroCalcBtn">
+            किंमत तपासा 💰
+          </a>
+        </div>
+
+        <div class="hero-pills">
+          <div class="hero-pill" data-i18n="heroPill1">✅ १००% मोफत पिकअप</div>
+          <div class="hero-pill" data-i18n="heroPill2">✅ रोख रक्कम व गुण</div>
+          <div class="hero-pill" data-i18n="heroPill3">✅ सुरक्षित पुनर्प्रक्रिया</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: WHAT IS E-WASTE
+         ==================================================================== -->
+    <section id="what-section" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="whatTag">ओळख</span>
+          <h2 class="section-title" data-i18n="whatTitle">ई-कचरा म्हणजे नक्की काय?</h2>
+          <p class="section-subtitle" data-i18n="whatSubtitle">
+            विजेवर किंवा बॅटरीवर चालणारी कोणतीही जुनी, नादुरुस्त किंवा बंद वस्तू
+          </p>
+          <div class="section-audio-row">
+            <button type="button" class="btn-listen" data-speech-key="whatListenText" aria-label="Listen to What is E-Waste section">
+              <span data-i18n="btnListen">🔊 ऐका</span>
+            </button>
+            <button type="button" class="btn-stop-audio" aria-label="Stop reading">
+              <span data-i18n="btnStop">⏹️ थांबवा</span>
+            </button>
+          </div>
+        </div>
+
+        <p style="text-align: center; max-width: 750px; margin: 0 auto 24px auto; font-size: 1.1rem;" data-i18n="whatDesc">
+          बंद पडलेले मोबाईल, जुने टीव्ही, जळालेले चार्जर, खराब बॅटऱ्या, जुन्या मिक्सर आणि वायर्स हा सर्व इलेक्ट्रॉनिक कचरा (ई-कचरा) आहे.
+        </p>
+
+        <!-- Big Emojis Category Cards -->
+        <div class="ewaste-grid">
+          <div class="ewaste-card">
+            <span class="ewaste-emoji" role="img" aria-label="Mobile">📱</span>
+            <span class="ewaste-label" data-i18n="ewMobile">मोबाईल व टॅबलेट</span>
+          </div>
+          <div class="ewaste-card">
+            <span class="ewaste-emoji" role="img" aria-label="Television">📺</span>
+            <span class="ewaste-label" data-i18n="ewTv">जुना टीव्ही व स्क्रीन</span>
+          </div>
+          <div class="ewaste-card">
+            <span class="ewaste-emoji" role="img" aria-label="Battery">🔋</span>
+            <span class="ewaste-label" data-i18n="ewBattery">सर्व प्रकारच्या बॅटऱ्या</span>
+          </div>
+          <div class="ewaste-card">
+            <span class="ewaste-emoji" role="img" aria-label="Charger">🔌</span>
+            <span class="ewaste-label" data-i18n="ewCharger">चार्जर व वायर्स</span>
+          </div>
+          <div class="ewaste-card">
+            <span class="ewaste-emoji" role="img" aria-label="Laptop">💻</span>
+            <span class="ewaste-label" data-i18n="ewLaptop">संगणक व लॅपटॉप</span>
+          </div>
+          <div class="ewaste-card">
+            <span class="ewaste-emoji" role="img" aria-label="Home Appliances">📻</span>
+            <span class="ewaste-label" data-i18n="ewRadio">रेडिओ, फॅन व मिक्सर</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3: WHY IT MATTERS & IMPACT COUNTERS
+         ==================================================================== -->
+    <section id="matters-section" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="mattersTag">महत्त्व</span>
+          <h2 class="section-title" data-i18n="mattersTitle">ई-कचऱ्याची योग्य विल्हेवाट का महत्त्वाची आहे?</h2>
+          <p class="section-subtitle" data-i18n="mattersSubtitle">
+            आपल्या गावची सुपीक जमीन, पिण्याचे पाणी आणि जनावरांचे रक्षण करा
+          </p>
+          <div class="section-audio-row">
+            <button type="button" class="btn-listen" data-speech-key="mattersListenText" aria-label="Listen to Why It Matters section">
+              <span data-i18n="btnListen">🔊 ऐका</span>
+            </button>
+            <button type="button" class="btn-stop-audio" aria-label="Stop reading">
+              <span data-i18n="btnStop">⏹️ थांबवा</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="matters-grid">
+          <div class="matter-card">
+            <span class="matter-icon">💧</span>
+            <h3 class="matter-title" data-i18n="mCard1Title">पाणी आणि मातीचे रक्षण</h3>
+            <p data-i18n="mCard1Desc">
+              बॅटऱ्यांमधील शिसे व पारा शेतात मुरल्यास पिण्याच्या विहिरीचे पाणी विषारी होते. सुरक्षित विल्हेवाटीने शेतजमीन निरोगी राहते.
+            </p>
+          </div>
+          <div class="matter-card">
+            <span class="matter-icon">💨</span>
+            <h3 class="matter-title" data-i18n="mCard2Title">विषारी धुरापासून बचाव</h3>
+            <p data-i18n="mCard2Desc">
+              तांबे काढण्यासाठी वायर्स चुलीत किंवा उघड्यावर जाळू नका. त्यामुळे लहान मुलांच्या व वृद्धांच्या फुफ्फुसांना हानी पोहोचते.
+            </p>
+          </div>
+          <div class="matter-card">
+            <span class="matter-icon">🪙</span>
+            <h3 class="matter-title" data-i18n="mCard3Title">मौल्यवान धातूंची प्राप्ती</h3>
+            <p data-i18n="mCard3Desc">
+              १ टन मोबाईल सर्किट बोर्डमधून सोन्याच्या खाणीपेक्षा जास्त सोने आणि तांबे मिळते. याचा देशाला व शेतकर्‍यांना फायदा होतो.
+            </p>
+          </div>
+          <div class="matter-card">
+            <span class="matter-icon">💰</span>
+            <h3 class="matter-title" data-i18n="mCard4Title">गावासाठी रोख उत्पन्न</h3>
+            <p data-i18n="mCard4Desc">
+              प्रत्येक भंगार उपकरणावर रोख रक्कम आणि ग्रामपंचायतीसाठी विकास गुण मिळतात.
+            </p>
+          </div>
+        </div>
+
+        <!-- Animated Impact Counters -->
+        <div class="counters-strip">
+          <div>
+            <div class="counter-num" data-target="14850">0</div>
+            <div class="counter-label" data-i18n="counter1">पुनर्प्रक्रिया उपकरणे</div>
+          </div>
+          <div>
+            <div class="counter-num" data-target="95">0</div>
+            <div class="counter-label" data-i18n="counter2">सहभागी गावे</div>
+          </div>
+          <div>
+            <div class="counter-num" data-target="540000">0</div>
+            <div class="counter-label" data-i18n="counter3">शेतकऱ्यांना दिलेले पैसे (₹)</div>
+          </div>
+          <div>
+            <div class="counter-num" data-target="38200">0</div>
+            <div class="counter-label" data-i18n="counter4">वाचवलेले कार्बन (कि.ग्रा.)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: DO'S AND DON'TS
+         ==================================================================== -->
+    <section id="rules-section" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="rulesTag">नियम</span>
+          <h2 class="section-title" data-i18n="rulesTitle">काय करावे आणि काय करू नये?</h2>
+          <p class="section-subtitle" data-i18n="rulesSubtitle">
+            सुरक्षित ई-कचरा हाताळणीसाठी सोप्या आणि महत्त्वाच्या सवयी
+          </p>
+          <div class="section-audio-row">
+            <button type="button" class="btn-listen" data-speech-key="rulesListenText" aria-label="Listen to Do's and Don'ts section">
+              <span data-i18n="btnListen">🔊 ऐका</span>
+            </button>
+            <button type="button" class="btn-stop-audio" aria-label="Stop reading">
+              <span data-i18n="btnStop">⏹️ थांबवा</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dos-donts-grid">
+          <!-- Green Box: DO's -->
+          <div class="rule-box do-box">
+            <div class="rule-header" data-i18n="dosTitle">काय करावे (योग्य सवयी) ✅</div>
+            <ul class="rule-list">
+              <li class="rule-item">
+                <span class="rule-badge">✔️</span>
+                <span data-i18n="do1">जुने फोन आणि बॅटऱ्या घरात एका सुक्या खोक्यात वेगळ्या साठवून ठेवा.</span>
+              </li>
+              <li class="rule-item">
+                <span class="rule-badge">✔️</span>
+                <span data-i18n="do2">ई-कचरा फक्त अधिकृत इकोसायकल गाडी किंवा ग्रामपंचायत शिबिरातच द्या.</span>
+              </li>
+              <li class="rule-item">
+                <span class="rule-badge">✔️</span>
+                <span data-i18n="do3">वस्तू देताना शक्य असल्यास मोबाईलमधून बॅटरी सुरक्षित वेगळी ठेवा.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Red Box: DON'Ts -->
+          <div class="rule-box dont-box">
+            <div class="rule-header" data-i18n="dontsTitle">काय करू नये (धोकादायक) ❌</div>
+            <ul class="rule-list">
+              <li class="rule-item">
+                <span class="rule-badge">❌</span>
+                <span data-i18n="dont1">बॅटऱ्या किंवा वायर्स चुकूनही शेतात, ओढ्यात किंवा उकिरड्यावर फेकू नका.</span>
+              </li>
+              <li class="rule-item">
+                <span class="rule-badge">❌</span>
+                <span data-i18n="dont2">विजेच्या तारा किंवा प्लास्टिकचे कव्हर कधीही चुलीत किंवा उघड्यावर जाळू नका.</span>
+              </li>
+              <li class="rule-item">
+                <span class="rule-badge">❌</span>
+                <span data-i18n="dont3">जुन्या टीव्हीच्या काचा किंवा स्क्रीन्स घराबाहेर उघड्यावर फोडू नका.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5: HOW IT WORKS
+         ==================================================================== -->
+    <section id="how-section" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="stepsTag">कार्यपद्धती</span>
+          <h2 class="section-title" data-i18n="stepsTitle">४ सोप्या टप्प्यांत काम कसे होते?</h2>
+          <p class="section-subtitle" data-i18n="stepsSubtitle">
+            अत्यंत सोपी प्रक्रिया - कोणताही तांत्रिक त्रास नाही
+          </p>
+          <div class="section-audio-row">
+            <button type="button" class="btn-listen" data-speech-key="stepsListenText" aria-label="Listen to How It Works section">
+              <span data-i18n="btnListen">🔊 ऐका</span>
+            </button>
+            <button type="button" class="btn-stop-audio" aria-label="Stop reading">
+              <span data-i18n="btnStop">⏹️ थांबवा</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">1</span>
+            <span class="step-icon">📦</span>
+            <h3 class="step-title" data-i18n="step1Title">१. वस्तू निवडा</h3>
+            <p data-i18n="step1Desc">घरातील जुने मोबाईल, बॅटरी किंवा टीव्ही एकत्र करा.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">2</span>
+            <span class="step-icon">📝</span>
+            <h3 class="step-title" data-i18n="step2Title">२. वेळ ठरवा</h3>
+            <p data-i18n="step2Desc">खालील फॉर्ममध्ये बोलून किंवा लिहून आपले गाव सांगा.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">3</span>
+            <span class="step-icon">🚚</span>
+            <h3 class="step-title" data-i18n="step3Title">३. गाडीत द्या</h3>
+            <p data-i18n="step3Desc">आमची इकोसायकल गाडी ठरलेल्या दिवशी दारात येईल.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">4</span>
+            <span class="step-icon">💵</span>
+            <h3 class="step-title" data-i18n="step4Title">४. रोख पैसे मिळवा</h3>
+            <p data-i18n="step4Desc">जागेवर रोख पैसे आणि फोनवर गुण मिळवा.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 6: PICKUP REQUEST FORM (With Voice Input & WhatsApp)
+         ==================================================================== -->
+    <section id="pickup-section" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="formTag">बुकिंग</span>
+          <h2 class="section-title" data-i18n="formTitle">मोफत ई-कचरा पिकअप विनंती</h2>
+          <p class="section-subtitle" data-i18n="formSubtitle">
+            माइकचे बटण दाबून बोलूनही माहिती भरू शकता
+          </p>
+          <div class="section-audio-row">
+            <button type="button" class="btn-listen" data-speech-key="formListenText" aria-label="Listen to Pickup Form instructions">
+              <span data-i18n="btnListen">🔊 ऐका</span>
+            </button>
+            <button type="button" class="btn-stop-audio" aria-label="Stop reading">
+              <span data-i18n="btnStop">⏹️ थांबवा</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="pickup-form" class="form-grid">
+            <!-- 1. Full Name (with Mic) -->
+            <div class="form-group">
+              <label for="pickup-name" class="form-label" data-i18n="lblName">आपले पूर्ण नाव:</label>
+              <div class="input-with-mic">
+                <input type="text" id="pickup-name" class="form-control" placeholder="उदा. रमेश तुकाराम पाटील" data-i18n-ph="phName" required>
+                <button type="button" class="mic-btn" data-target="pickup-name" title="बोलून नाव भरा" aria-label="Speak Name into form">
+                  🎤
+                </button>
+              </div>
+            </div>
+
+            <!-- 2. Mobile Number (10 digits) -->
+            <div class="form-group">
+              <label for="pickup-phone" class="form-label" data-i18n="lblPhone">मोबाईल नंबर (१० अंकी):</label>
+              <input type="tel" id="pickup-phone" class="form-control" placeholder="उदा. 9822XXXXXX" data-i18n-ph="phPhone" pattern="[0-9]{10}" required>
+            </div>
+
+            <!-- 3. District Dropdown -->
+            <div class="form-group">
+              <label for="pickup-district" class="form-label" data-i18n="lblDistrict">जिल्हा निवडा:</label>
+              <select id="pickup-district" class="form-control" required>
+                <option value="Pune (पुणे)">Pune (पुणे)</option>
+                <option value="Nashik (नाशिक)">Nashik (नाशिक)</option>
+                <option value="Satara (सातारा)">Satara (सातारा)</option>
+                <option value="Ahmednagar (अहिल्यानगर/नगर)">Ahmednagar (अहिल्यानगर/नगर)</option>
+                <option value="Kolhapur (कोल्हापूर)">Kolhapur (कोल्हापूर)</option>
+                <option value="Solapur (सोलापूर)">Solapur (सोलापूर)</option>
+                <option value="Other Rural District">Other / इतर ग्रामीण जिल्हा</option>
+              </select>
+            </div>
+
+            <!-- 4. Taluka -->
+            <div class="form-group">
+              <label for="pickup-taluka" class="form-label" data-i18n="lblTaluka">तालुका:</label>
+              <input type="text" id="pickup-taluka" class="form-control" placeholder="उदा. बारामती / जुन्नर / कराड" data-i18n-ph="phTaluka" required>
+            </div>
+
+            <!-- 5. Village (with Mic) -->
+            <div class="form-group">
+              <label for="pickup-village" class="form-label" data-i18n="lblVillage">गाव (ग्राम):</label>
+              <div class="input-with-mic">
+                <input type="text" id="pickup-village" class="form-control" placeholder="उदा. माळेगाव / नारायणगाव" data-i18n-ph="phVillage" required>
+                <button type="button" class="mic-btn" data-target="pickup-village" title="बोलून गावाचे नाव भरा" aria-label="Speak Village name into form">
+                  🎤
+                </button>
+              </div>
+            </div>
+
+            <!-- 6. Device Type Dropdown -->
+            <div class="form-group">
+              <label for="pickup-device" class="form-label" data-i18n="lblDevice">उपकरणाचा प्रकार:</label>
+              <select id="pickup-device" class="form-control">
+                <option value="mobile">📱 Smartphone / Android Phone</option>
+                <option value="featurePhone">📞 Basic Keypad Phone</option>
+                <option value="battery">🔋 Inverter / Automobile Battery</option>
+                <option value="tv">📺 Old Television / CRT Screen</option>
+                <option value="laptop">💻 Laptop / Old Computer</option>
+                <option value="charger">🔌 Chargers, Cables & Adapters</option>
+                <option value="fridge">❄️ Refrigerator / Cooler</option>
+                <option value="appliance">📻 Mixer / Fan / Radio</option>
+              </select>
+            </div>
+
+            <!-- 7. Quantity (with Stepper & Mic) -->
+            <div class="form-group">
+              <label for="pickup-qty" class="form-label" data-i18n="lblQty">वस्तूंची संख्या:</label>
+              <div class="input-with-mic">
+                <div class="qty-control">
+                  <button type="button" id="qty-minus" class="qty-btn" aria-label="Decrease quantity">-</button>
+                  <input type="number" id="pickup-qty" class="form-control qty-input" value="1" min="1" max="50" required style="max-width: 100px;">
+                  <button type="button" id="qty-plus" class="qty-btn" aria-label="Increase quantity">+</button>
+                </div>
+                <button type="button" class="mic-btn" data-target="pickup-qty" title="बोलून संख्या सांगा" aria-label="Speak Quantity">
+                  🎤
+                </button>
+              </div>
+            </div>
+
+            <!-- 8. Preferred Date -->
+            <div class="form-group">
+              <label for="pickup-date" class="form-label" data-i18n="lblDate">पिकअपची सोयीची तारीख:</label>
+              <input type="date" id="pickup-date" class="form-control" required>
+            </div>
+
+            <!-- Submit Button (Opens WhatsApp with prefilled text) -->
+            <button type="submit" class="btn btn-whatsapp-submit" data-i18n="btnSubmit">
+              व्हॉट्सॲपवर पाठवा व पिकअप नोंदवा 💬
+            </button>
+
+            <p class="form-hint" style="text-align: center; margin-top: 8px;" data-i18n="formHelp">
+              💡 टीप: वरील बटण दाबल्यावर व्हॉट्सॲप उघडेल. संदेश पाठवून नोंदणी पूर्ण करा.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 7: POINTS & SCRAP VALUE CALCULATOR
+         ==================================================================== -->
+    <section id="calculator-section" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="calcTag">अंदाज</span>
+          <h2 class="section-title" data-i18n="calcTitle">भंगार किंमत आणि गुण कॅल्क्युलेटर</h2>
+          <p class="section-subtitle" data-i18n="calcSubtitle">
+            आपल्या उपकरणाची अंदाजे रोख रक्कम आणि गुण तपासा
+          </p>
+          <div class="section-audio-row">
+            <button type="button" class="btn-listen" data-speech-key="calcListenText" aria-label="Listen to Calculator section">
+              <span data-i18n="btnListen">🔊 ऐका</span>
+            </button>
+            <button type="button" class="btn-stop-audio" aria-label="Stop reading">
+              <span data-i18n="btnStop">⏹️ थांबवा</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="calc-card">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="calc-device" class="form-label" data-i18n="calcDevice">उपकरण निवडा:</label>
+              <select id="calc-device" class="form-control">
+                <option value="mobile">📱 Smartphone (₹400 / 80 Pts)</option>
+                <option value="featurePhone">📞 Keypad Phone (₹120 / 25 Pts)</option>
+                <option value="battery">🔋 Inverter Battery (₹850 / 170 Pts)</option>
+                <option value="laptop">💻 Laptop / PC (₹1,100 / 220 Pts)</option>
+                <option value="tv">📺 Old TV (₹450 / 90 Pts)</option>
+                <option value="fridge">❄️ Fridge / Cooler (₹950 / 190 Pts)</option>
+                <option value="charger">🔌 Charger & Wires (₹40 / 10 Pts)</option>
+                <option value="appliance">📻 Mixer / Fan (₹180 / 35 Pts)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calc-qty" class="form-label" data-i18n="calcQty">संख्या:</label>
+              <input type="number" id="calc-qty" class="form-control" value="1" min="1" max="100">
+            </div>
+
+            <!-- Result Box -->
+            <div class="calc-result-box">
+              <div class="calc-val-row">
+                <div class="calc-val-item">
+                  <div class="calc-big-num" id="calc-cash-result">₹400</div>
+                  <div style="font-weight: 700;" data-i18n="calcCashLabel">अंदाजे रोख रक्कम</div>
+                </div>
+                <div class="calc-val-item">
+                  <div class="calc-big-num" id="calc-points-result">80 Pts</div>
+                  <div style="font-weight: 700;" data-i18n="calcPointsLabel">मिळणारे इकोपॉइंट्स</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 16px;">
+              <a href="#pickup-section" class="btn btn-primary" data-i18n="heroCtaBtn">
+                पिकअपसाठी अर्ज करा 🚚
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 8: COLLECTION CENTERS & CAMPS TABLE
+         ==================================================================== -->
+    <section id="centers-section" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="centersTag">केंद्रे</span>
+          <h2 class="section-title" data-i18n="centersTitle">गाव संकलन केंद्रे व शिबिरे</h2>
+          <p class="section-subtitle" data-i18n="centersSubtitle">
+            आपण स्वतः जाऊनही खालील केंद्रांवर ई-कचरा देऊ शकता
+          </p>
+          <div class="section-audio-row">
+            <button type="button" class="btn-listen" data-speech-key="centersListenText" aria-label="Listen to Collection Centers section">
+              <span data-i18n="btnListen">🔊 ऐका</span>
+            </button>
+            <button type="button" class="btn-stop-audio" aria-label="Stop reading">
+              <span data-i18n="btnStop">⏹️ थांबवा</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Input -->
+        <div class="centers-search-box">
+          <input type="text" id="center-search-input" class="form-control" placeholder="गाव किंवा तालुक्याचे नाव शोधा..." data-i18n-ph="searchPlaceholder" aria-label="Search village or taluka">
+        </div>
+
+        <!-- Centers Table -->
+        <div class="table-responsive">
+          <table class="centers-table">
+            <thead>
+              <tr>
+                <th data-i18n="thVillage">गाव / ठिकाण</th>
+                <th data-i18n="thCenter">केंद्राचे नाव</th>
+                <th data-i18n="thContact">संपर्क व्यक्ती</th>
+                <th data-i18n="thTiming">वेळ व दिवस</th>
+              </tr>
+            </thead>
+            <tbody id="centers-tbody">
+              <!-- Rendered via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 9: FAQ ACCORDION
+         ==================================================================== -->
+    <section id="faq-section" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="faqTag">प्रश्न उत्तरे</span>
+          <h2 class="section-title" data-i18n="faqTitle">नेहमी विचारले जाणारे प्रश्न (FAQ)</h2>
+          <p class="section-subtitle" data-i18n="faqSubtitle">
+            आपल्या शंकांचे सोपे आणि स्पष्ट निरसन
+          </p>
+          <div class="section-audio-row">
+            <button type="button" class="btn-listen" data-speech-key="faqListenText" aria-label="Listen to FAQ section">
+              <span data-i18n="btnListen">🔊 ऐका</span>
+            </button>
+            <button type="button" class="btn-stop-audio" aria-label="Stop reading">
+              <span data-i18n="btnStop">⏹️ थांबवा</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item open">
+            <button type="button" class="faq-question" aria-expanded="true">
+              <span data-i18n="faq1Q">गावांसाठी पिकअप खरोखर मोफत आहे का?</span>
+              <span class="faq-icon-arrow">▼</span>
+            </button>
+            <div class="faq-answer" data-i18n="faq1A">
+              होय! ग्रामपंचायतींच्या सहकार्याने घरातून पिकअप आणि शिबिर संकलन १००% पूर्णपणे मोफत आहे. कोणतेही शुल्क आकारले जात नाही.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span data-i18n="faq2Q">मला रोख पैसे जागेवरच मिळतात का?</span>
+              <span class="faq-icon-arrow">▼</span>
+            </button>
+            <div class="faq-answer" data-i18n="faq2A">
+              होय! वस्तू तपासल्यानंतर आमचे प्रतिनिधी जागेवरच रोख रक्कम किंवा थेट Google Pay / PhonePe द्वारे पैसे देतात.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span data-i18n="faq3Q">माझ्या जुन्या मोबाईलमधील फोटो किंवा डेटा सुरक्षित राहील का?</span>
+              <span class="faq-icon-arrow">▼</span>
+            </button>
+            <div class="faq-answer" data-i18n="faq3A">
+              होय! आमचे अधिकृत प्रतिनिधी जागेवरच मोबाईलचा डेटा पूर्णपणे नष्ट (Wipe) करतात, त्यामुळे कोणतीही माहिती गैरवापर होत नाही.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span data-i18n="faq4Q">आमच्या गावात संकलन शिबिर कसे आयोजित करावे?</span>
+              <span class="faq-icon-arrow">▼</span>
+            </button>
+            <div class="faq-answer" data-i18n="faq4A">
+              गावचे सरपंच किंवा ग्रामपंचायत सदस्य आमच्या टोल-फ्री नंबरवर फोन करू शकतात किंवा व्हॉट्सॲपवर संदेश पाठवून तारीख ठरवू शकतात.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       SECTION 10: FOOTER & FLOATING ACTION BUTTONS
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="logo-area" style="justify-content: center;">
+        <span class="logo-icon">🌱</span>
+        <span data-i18n="appName">EcoCycle</span>
+      </div>
+      <p style="max-width: 500px;" data-i18n="footDesc">
+        ग्रामीण महाराष्ट्रातील प्रत्येक गावातील शेती आणि पाणी सुरक्षित ठेवण्यासाठी समर्पित.
+      </p>
+
+      <div style="font-weight: 700; font-size: 1.15rem; color: var(--primary);">
+        📞 <span data-i18n="footCall">हेल्पलाइन:</span> <a href="tel:18002673262" style="text-decoration: underline;">1800-267-3262</a>
+      </div>
+      <div style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="footTime">
+        सकाळी ८ ते रात्री ८ (सोम-शनि)
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero-section" data-i18n="appName">EcoCycle</a>
+        <a href="#what-section" data-i18n="whatTag">ओळख</a>
+        <a href="#rules-section" data-i18n="rulesTag">नियम</a>
+        <a href="#pickup-section" data-i18n="formTag">बुकिंग</a>
+        <a href="#centers-section" data-i18n="centersTag">केंद्रे</a>
+      </div>
+
+      <div class="footer-bottom" data-i18n="footRights">
+        सर्व हक्क राखीव. स्वच्छ भारत आणि ग्राम विकास उपक्रम.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Audio Player Bar (Shows up during text-to-speech) -->
+  <div id="floating-audio-bar" class="floating-audio-bar" role="status" aria-live="polite">
+    <div class="audio-wave">
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+    </div>
+    <span id="floating-audio-status" style="font-weight: 600; font-size: 0.95rem;">वाचून दाखवत आहे...</span>
+    <button type="button" id="floating-stop-btn" class="btn-stop-audio" style="min-height: 36px; padding: 4px 12px; font-size: 0.85rem;" aria-label="Stop audio narration">
+      ⏹️ थांबवा
+    </button>
+  </div>
+
+  <!-- Floating Quick Helpline & WhatsApp Buttons -->
+  <div class="floating-actions" role="complementary" aria-label="Quick contact buttons">
+    <!-- Call Button -->
+    <a href="tel:18002673262" class="fab fab-call" aria-label="Call Toll-Free Helpline 1800-267-3262" title="हेल्पलाइनवर फोन करा">
+      📞 <span>1800-267-3262</span>
+    </a>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919876543210?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%20EcoCycle,%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%88-%E0%A4%95%E0%A4%9 advocates%E0%A4%B0%E0%A4%BE%20%E0%A4%AA%E0%A4%BF%E0%A4%95%E0%A4%85%E0%A4%AA%20%E0%A4%AC%E0%A4%BE%E0%A4%AC%E0%A4%A4%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87." target="_blank" rel="noopener noreferrer" class="fab fab-whatsapp" aria-label="Chat on WhatsApp" title="व्हॉट्सॲपवर संपर्क साधा">
+      💬 <span>WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
